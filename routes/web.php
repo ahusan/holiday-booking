@@ -20,16 +20,16 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::resource('packages', PackageController::class);
-});
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('packages', [PackageController::class, 'index']);
-    Route::post('bookings', [BookingController::class, 'store']);
+    Route::middleware(['is_admin'])->group(function () {
+        Route::resource('packages', PackageController::class);
+        Route::get('/packages', function (){
+            return Inertia::render('Packages');
+        })->name('packages.index');
+    });
 });
 
 require __DIR__.'/auth.php';
