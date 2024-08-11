@@ -25,12 +25,12 @@
                             leave-from="translate-x-0"
                             leave-to="translate-x-full"
                         >
-                            <DialogPanel class="pointer-events-auto w-screen max-w-5xl">
+                            <DialogPanel class="pointer-events-auto max-w-5xl">
                                 <div
                                     class="flex h-full flex-col overflow-y-scroll items-center bg-white py-6 shadow-xl"
                                 >
                                     <div class="px-4 sm:px-6 w-full">
-                                        <div class="flex items-center justify-between max-w-3xl mx-auto">
+                                        <div class="flex items-center justify-between mx-auto">
                                             <DialogTitle class="text-2xl font-semibold leading-6 text-gray-900"
                                                 >{{ title }}
                                             </DialogTitle>
@@ -38,7 +38,7 @@
                                                 <button
                                                     class="relative rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                                                     type="button"
-                                                    @click="show = false"
+                                                    @click="close"
                                                 >
                                                     <span class="absolute -inset-2.5" />
                                                     <span class="sr-only">Close panel</span>

@@ -14,6 +14,14 @@ class PackageController extends Controller
         ]);
     }
 
+    public function details( Request $request, int $packageId ): \Inertia\Response
+    {
+        $package = Package::find( $packageId );
+        return Inertia::render('PackageDetails', [
+            'package' => $package
+        ]);
+    }
+
     public function  admin( Request $request ){
         return Inertia::render('Admin/Packages', [
             'packages' => Package::all()

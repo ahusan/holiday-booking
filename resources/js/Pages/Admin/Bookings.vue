@@ -1,5 +1,5 @@
 <template>
-    <authenticated-layout>
+    <admin-layout>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-2">
@@ -22,7 +22,7 @@
                                         />
                                         <div class="min-w-0 flex-auto">
                                             <p class="text-sm font-semibold leading-6 text-gray-900">
-                                                <a :href="'#'">
+                                                <a :href="route('admin.bookings.edit', { id: book.id })">
                                                     <span class="absolute inset-x-0 -top-px bottom-0" />
                                                     {{ book.package.title }}
                                                 </a>
@@ -66,12 +66,12 @@
                 </div>
             </div>
         </div>
-    </authenticated-layout>
+    </admin-layout>
 </template>
 <script setup>
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
 import { usePage } from '@inertiajs/vue3'
 import { CalendarIcon } from '@heroicons/vue/24/outline/index.js'
+import AdminLayout from '@/Layouts/AdminLayout.vue'
 
 const page = usePage()
 const booking = page.props.bookings

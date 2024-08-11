@@ -11,12 +11,13 @@
                                     <h3 class="text-base font-semibold leading-6 text-gray-900">Users</h3>
                                 </div>
                                 <div class="ml-4 mt-2 flex-shrink-0">
-                                    <button
+                                    <a
+                                        :href="'admin/user/edit'"
                                         class="relative inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                         type="button"
                                     >
                                         Create new user
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                             <ul class="divide-y divide-gray-100" role="list">
@@ -25,15 +26,11 @@
                                     :key="person.email"
                                     class="relative flex justify-between gap-x-6 py-5"
                                 >
-                                    <div class="flex min-w-0 gap-x-4">
-                                        <img
-                                            :src="person.imageUrl"
-                                            alt=""
-                                            class="h-12 w-12 flex-none rounded-full bg-gray-50"
-                                        />
+                                    <div class="flex items-center min-w-0 gap-x-4">
+                                        <UserIcon class="text-md h-10 w-10 text-gray-500 border-2 rounded-2xl p-1" />
                                         <div class="min-w-0 flex-auto">
                                             <p class="text-sm font-semibold leading-6 text-gray-900">
-                                                <a :href="'admin/user/' + person.id">
+                                                <a :href="'/admin/user/' + person.id">
                                                     <span class="absolute inset-x-0 -top-px bottom-0" />
                                                     {{ person.name }}
                                                 </a>
@@ -74,10 +71,11 @@
         </div>
     </admin-layout>
 </template>
-<script lang="ts" setup>
+<script setup>
 import AdminLayout from '@/Layouts/AdminLayout.vue'
 import { Head, usePage } from '@inertiajs/vue3'
 import { computed } from 'vue'
+import { ChevronRightIcon, UserIcon } from '@heroicons/vue/24/outline'
 
 const page = usePage()
 const users = computed(() => page.props.users)
