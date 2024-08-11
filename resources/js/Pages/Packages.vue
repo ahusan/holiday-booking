@@ -9,7 +9,11 @@
                             <div
                                 v-for="item in packages"
                                 :key="item.id"
+                                :data-aos-delay="item.id * 50"
                                 class="bg-white shadow-md rounded-lg overflow-hidden"
+                                data-aos="fade-up"
+                                data-aos-duration="1000"
+                                data-aos-once="false"
                             >
                                 <img
                                     :src="item.image_url"
@@ -108,7 +112,7 @@ import Drawer from '@/Components/Drawer.vue'
 import PrimaryButton from '@/Components/PrimaryButton.vue'
 
 const page = usePage()
-const packages = computed(() => page.props.packages)
+let packages = computed(() => page.props.packages)
 const showModal = ref(false)
 const packageDetails = ref({})
 

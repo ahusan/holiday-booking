@@ -3,11 +3,10 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class BookingNotification extends Notification
+class BookingNotification extends Notification implements \Illuminate\Contracts\Mail\Mailable
 {
     use Queueable;
     public $message;

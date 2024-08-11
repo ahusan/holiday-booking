@@ -21,6 +21,7 @@
     "dependencies": {
         "@headlessui/vue": "^1.7.22",
         "@heroicons/vue": "^2.1.5",
+        "aos": "^3.0.0-beta.6",
         "flowbite": "^2.5.1"
     }
 }

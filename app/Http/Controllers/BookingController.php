@@ -56,6 +56,7 @@ class BookingController extends Controller
             'user_id' => auth()->id(),
             'package_id' => $validated['package_id'],
         ]);
+//        Mail::to(Auth::user()->email)->queue(new BookingNotification('Booking created'));
         return redirect()->route('bookings.confirm')->with('success', 'Booking created successfully!');
 
     }

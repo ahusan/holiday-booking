@@ -47,6 +47,8 @@ Route::middleware('auth')->group(function () {
             ]);
         })->name('admin');
         Route::get('/admin/packages', [ PackageController::class, 'admin' ])->name('admin.packages');
+        Route::post('/admin/packages/add', [PackageController::class, 'create'])->name('admin.packages.create');
+        Route::get('/admin/packages/add', [PackageController::class, 'add'])->name('admin.packages.add');
         Route::get('/admin/users', function (){
             return Inertia::render('Admin/Users', [
                 'users' => User::all(),

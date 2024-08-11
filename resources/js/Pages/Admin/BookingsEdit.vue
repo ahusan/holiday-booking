@@ -4,7 +4,7 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white max-w-7xl mx-auto rounded-lg">
-                        <h2 class="font-semibold text-xl text-gray-800 leading-tight my-3 mb-6">Create Booking</h2>
+                        <h2 class="font-semibold text-xl text-gray-800 leading-tight my-3 mb-6">Edit Booking</h2>
                         <div
                             v-if="$page.props.flash.success"
                             class="bg-green-500 text-white font-bold py-2 px-4 rounded mt-2"
