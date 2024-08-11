@@ -49,7 +49,7 @@ class PackageController extends Controller
         ]);
 
         $package = Package::create([
-            'title' => 'fsgdfdfg fg dfg dgdf g',
+            'title' => $request->get('title'),
             'guests' => $request->get('guests'),
             'phone' => $request->get('phone'),
             'special_requests' => $request->get('special_requests') ?? '',

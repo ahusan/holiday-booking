@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('destination');
             $table->decimal('price', 8, 2);
             $table->integer('duration')->comment('Duration in days');
-            $table->date('start_date');
+            $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->json('inclusions')->nullable()->comment('List of things included in the package');
             $table->json('exclusions')->nullable()->comment('List of things not included in the package');
