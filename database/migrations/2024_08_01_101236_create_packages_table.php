@@ -13,10 +13,19 @@ return new class extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description');
-            $table->json('photos'); // JSON field for photos
-            $table->date('expiry_date');
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->string('destination');
+            $table->decimal('price', 8, 2);
+            $table->integer('duration')->comment('Duration in days');
+            $table->date('start_date');
+            $table->date('end_date')->nullable();
+            $table->json('inclusions')->nullable()->comment('List of things included in the package');
+            $table->json('exclusions')->nullable()->comment('List of things not included in the package');
+            $table->json('itinerary')->nullable()->comment('Detailed day-wise itinerary');
+            $table->integer('max_participants')->nullable()->comment('Maximum number of participants');
+            $table->string('image_url')->nullable()->comment('URL to a representative image of the package');
+            $table->boolean('is_featured')->default(false);
             $table->timestamps();
         });
 

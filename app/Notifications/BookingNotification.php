@@ -10,13 +10,14 @@ use Illuminate\Notifications\Notification;
 class BookingNotification extends Notification
 {
     use Queueable;
+    public $message;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct($message)
     {
-        //
+        $this->message = $message;
     }
 
     /**
@@ -35,7 +36,7 @@ class BookingNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
+                    ->line($this->message)
                     ->action('Notification Action', url('/'))
                     ->line('Thank you for using our application!');
     }
